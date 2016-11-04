@@ -75,15 +75,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    MissRobot
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="http://localhost:8000/home">Nouveautés</a>
+                    <a href="https://laracasts.com">Se connecter</a>
+                    <a href="https://laravel-news.com">S'inscrire</a>
+                    <a href="https://github.com/inassou/microblog">GitHub</a>
                 </div>
             </div>
         </div>

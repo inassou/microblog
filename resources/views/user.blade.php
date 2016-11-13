@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,9 +56,9 @@
             <ul class="nav navbar-nav">
 
 
-                <li class="active"><a href="/home">Home</a></li>
+                <li><a href="/home">Home</a></li>
                 <li><a href="/authentification">Se connecter</a></li>
-                <li><a href="/sign_up">S'inscrire</a></li>
+                <li class="active"><a href="/sign_up">S'inscrire</a></li>
 
 
             </ul>
@@ -67,27 +66,22 @@
     </div>
 </nav>
 
-@yield('content')
-
-<!--
-
-<div class="container">
-
-    <div class="starter-template" style="padding-top: 40px;">
-        <h1> {{ $title }} </h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-    </div>
-
-</div> <!-- /.container -->
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>
+    <h1>Inscription</h1>
+
+
+    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 10]])!!}
+
+    {!! BootForm::text('Pseudo', 'name') !!}
+    {!! BootForm::email('Email', 'email') !!}
+    {!! BootForm::password('Mot de passe', 'password')->helpBlock('La longueur du mot de passe doit être supérieur à 8')!!}
+    {!! BootForm::text('Retapez votre mot de passe', 'password') !!}
+    {!! BootForm::submit('Envoyer') !!}
+
+    {!! BootForm::close() !!}
+
+
+
+
+

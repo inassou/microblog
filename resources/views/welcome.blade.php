@@ -81,7 +81,7 @@
                 <div class="links">
                     <a href="http://localhost:8000/home">Nouveautés</a>
                     <a href="https://laracasts.com">Se connecter</a>
-                    <a href="https://laravel-news.com">S'inscrire</a>
+                    <a href="http://localhost:8000/sign_up">S'inscrire</a>
                     <a href="https://github.com/inassou/microblog">GitHub</a>
                 </div>
             </div>

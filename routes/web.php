@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index');
 
+Route::get('sign_up', 'UserController@create');
+Route::post('sign_up', 'UserController@store');
+
+//Route::controller('sign_up', 'UserController@index');
+
 /*
 Route::controllers([
     'auth' => 'Auth\AuthController',

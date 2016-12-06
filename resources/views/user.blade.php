@@ -71,7 +71,7 @@
     <h1>Inscription</h1>
 
 
-    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 10]])!!}
+    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 5]])!!}
 
     {!! BootForm::text('Pseudo', 'name') !!}
     {!! BootForm::email('Email', 'email') !!}

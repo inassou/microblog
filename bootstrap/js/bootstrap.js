@@ -822,6 +822,7 @@ if (typeof jQuery === 'undefined') {
           .addClass('dropdown-backdrop')
           .insertAfter($(this))
           .on('click', clearMenus)
+
       }
 
       var relatedTarget = { relatedTarget: this }

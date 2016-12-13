@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="http://localhost:8000/home">Nouveautés</a>
+                    <a href="http://localhost:8000/home">Blog</a>
                     <a href="http://localhost:8000/login">Se connecter</a>
                     <a href="http://localhost:8000/register">S'inscrire</a>
                     <a href="https://github.com/inassou/microblog">GitHub</a>

@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav">
 
 
-                <li class="active"><a href="/home">Home</a></li>
+                <li class="active"><a href="/home">Page d'accueil</a></li>
 
             </ul>
 

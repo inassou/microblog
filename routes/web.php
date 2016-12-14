@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::resource('news', 'PostsController');
+
+Route::post('news.update','PostController@update');
+
 Route::get('/', function () {
     return view('welcome');
 });

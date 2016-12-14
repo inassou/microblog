@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav">
 
 
-                <li class="active"><a href="/home">Home</a></li>
+                <li class="active"><a href="/home">Page d'accueil</a></li>
                 <li><a href="/authentification">Se connecter</a></li>
                 <li><a href="/sign_up">S'inscrire</a></li>
 

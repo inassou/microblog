@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Request;
+//use App\Request;
 use App\Http\Controllers\Controller;
 
 use App\Post;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PostsController extends Controller
@@ -48,15 +48,42 @@ class PostsController extends Controller
 
 
 
-        public function update($id)
+        public function update($id, Request $request)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::findorFail($id);
 
-        $post->update(request()->all());
+        $title = $request->input('title');
 
+        $post->title = $title;
+        $slug = str_slug($title);
+
+        $duplicate = Post::where('slug',$slug)->first();
+        if($duplicate)
+        {
+            if($duplicate->id != $post_id)
+            {
+                return redirect('edit/'.$post->slug)->withErrors('Title already exists.')->withInput();
+            }
+            else
+            {
+                $post->slug = $slug;
+            }
+        }
+
+        $post->title = $title;
+        $post->content = $request->input('content');
+
+        $request->has('save');
+
+        $post->save();
         return redirect(route('news.index'));
-
     }
+
+
+        /* $post->update(request()->all());
+        return redirect(route('news.index')); */
+
+
 
 
 
@@ -65,12 +92,6 @@ class PostsController extends Controller
          *
          * @param  int  $id
          * @return Response
-         */
-
-      /**dd(\Request::all());
-       * $post =findOrFail($id);
-        $post->update($request->all());
-        redirect(route('news'));
          */
 
 

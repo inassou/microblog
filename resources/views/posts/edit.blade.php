@@ -3,7 +3,7 @@
 
     @section('content')
 
-        <h1>Edit</h1>
+        <h1>Editer</h1>
 
         <?php $formOptions = [
             'url' => 'user',
@@ -14,9 +14,9 @@
 
         {!! BootForm::openHorizontal($formOptions)->action(route('news.update', $post)) !!}
         <input type="hidden" name="_method" value="PUT">
-        {!! BootForm::text('Titre', $post->title) !!}
-        {!! BootForm::text('Slug', $post->slug) !!}
-        {!! BootForm::textarea('Contenu', $post->content) !!}
+        {!! BootForm::text('Titre','title') !!}
+        {!! BootForm::text('Slug', 'slug') !!}
+        {!! BootForm::textarea('Contenu', 'content') !!}
         {!! BootForm::submit('Editer') !!}
         {!! BootForm::close() !!}
 

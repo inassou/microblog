@@ -11,7 +11,7 @@
         'lg' => [2, 5],
     ]; ?>
 
-    {!! BootForm::openHorizontal($formOptions)->action(route('news.store')) !!}
+    {!! BootForm::openHorizontal($formOptions)->action(route('news.update')) !!}
     <input type="hidden" name="_method" value="GET">
     {!! BootForm::text('Titre', null) !!}
     {!! BootForm::text('Slug', null) !!}

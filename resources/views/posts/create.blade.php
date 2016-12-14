@@ -1,19 +1,22 @@
-    @extends ('layouts.app')
 
-    @section ('content')
+@extends('layouts.app')
 
-        <h1>Creer un post</h1>
+@section('content')
 
-        {!! BootForm::openHorizontal (['method'=> 'put', 'url' => route('news.store'), 'sm' => [2, 5], 'lg' => [2, 5]]) !!}
+    <h1>New post</h1>
 
-        {!! BootForm::text('Titre', $post->title) !!}
+    <?php $formOptions = [
+        'url' => 'user',
+        'sm' => [2, 5],
+        'lg' => [2, 5],
+    ]; ?>
 
-        {!! BootForm::textarea('Contenu', $post->content) !!}
+    {!! BootForm::openHorizontal($formOptions)->action(route('news.store')) !!}
+    <input type="hidden" name="_method" value="GET">
+    {!! BootForm::text('Titre', null) !!}
+    {!! BootForm::text('Slug', null) !!}
+    {!! BootForm::textarea('Contenu', null) !!}
+    {!! BootForm::submit('Ajouter') !!}
+    {!! BootForm::close() !!}
 
-        {!! BootForm::submit('Creer') !!}
-
-        {!! BootForm::close() !!}
-
-    @stop
-
-
+@stop

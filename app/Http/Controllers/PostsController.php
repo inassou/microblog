@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Post;
 //use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PostsController extends Controller
 {
@@ -15,31 +16,14 @@ class PostsController extends Controller
 
         $posts = Post::get();
         return view('posts.index', compact('posts'));
-    
+
         }
 
-    public function store(PostFormRequest $request)
+    public function store()
     {
-        $post = new Post();
-        $post->title = $request->get('title');
-        $post->body = $request->get('body');
-        $post->slug = str_slug($post->title);
+        $post = Post::create(request()->all());
 
-        $duplicate = Post::where('slug', $post->slug)->first();
-        if ($duplicate) {
-            return redirect('new-post')->withErrors('Title already exists.')->withInput();
-        }
-
-        $post->author_id = $request->user()->id;
-        if ($request->has('save')) {
-            $post->active = 0;
-            $message = 'Post saved successfully';
-        } else {
-            $post->active = 1;
-            $message = 'Post published successfully';
-        }
-        $post->save();
-        return redirect('edit/' . $post->slug)->withMessage($message);
+        return redirect(route('news.index'));
     }
 
     public function show($slug)
@@ -62,41 +46,18 @@ class PostsController extends Controller
     }
 
 
-    public function update(Request $request)
+
+
+        public function update($id)
     {
-        //
-        $post_id = $request->input('post_id');
-        $post = Post::find($post_id);
-        if ($post && ($post->author_id == $request->user()->id || $request->user()->is_admin())) {
-            $title = $request->input('title');
-            $slug = str_slug($title);
-            $duplicate = Post::where('slug', $slug)->first();
-            if ($duplicate) {
-                if ($duplicate->id != $post_id) {
-                    return redirect('edit/' . $post->slug)->withErrors('Title already exists.')->withInput();
-                } else {
-                    $post->slug = $slug;
-                }
-            }
+        $post = Post::findOrFail($id);
 
-            $post->title = $title;
-            $post->body = $request->input('body');
+        $post->update(request()->all());
 
-            if ($request->has('save')) {
-                $post->active = 0;
-                $message = 'Post saved successfully';
-                $landing = 'edit/' . $post->slug;
-            } else {
-                $post->active = 1;
-                $message = 'Post updated successfully';
-                $landing = $post->slug;
-            }
-            $post->save();
-            return redirect($landing)->withMessage($message);
-        } else {
-            return redirect('/')->withErrors('you have not sufficient permissions');
-        }
+        return redirect(route('news.index'));
+
     }
+
 
 
         /**

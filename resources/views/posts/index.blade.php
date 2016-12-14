@@ -13,5 +13,6 @@
 
     @endforeach
 
+    <p> <a class="btn btn-primary" href="{{route('news.create', $post) }}">Nouvel article</a></p>
 @stop
 

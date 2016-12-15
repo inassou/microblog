@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:8000">MissRobot</a>
+            <a class="navbar-brand" href="http://localhost:8000/news">MissRobot</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url('/logout') }}"
+                                <a href="{{ url('/news') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Se déconnecter
@@ -92,16 +92,26 @@
     </div>
 </nav>
 
-@yield('title')
-
-@yield('title-meta')
-
-@yield('content')
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>@yield('title')</h2>
+                @yield('title-meta')
+            </div>
+            <div class="panel-body">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ asset('/js/jquery.min-2.1.3.js') }}"></script>
+<script src="{{ asset('/js/bootstrap.min-3.3.1.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

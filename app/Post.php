@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-
 protected $fillable = ['title', 'name' , 'slug', 'theme' , 'nb_comments', 'content', 'created_at', 'updated_at'];
     public function comments()
     {
@@ -21,6 +20,8 @@ protected $fillable = ['title', 'name' , 'slug', 'theme' , 'nb_comments', 'conte
     {
         return $this->belongsTo('App\User','name_id');
     }
+
+    public $timestamps = true;
 
 
 }

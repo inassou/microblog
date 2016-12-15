@@ -74,12 +74,7 @@ class PostsController extends Controller
         $post->title = $title;
         $theme = $request->input('theme');
         $post->theme = $theme;
-<<<<<<< HEAD
-        $post->title = $title;
-=======
 
-
->>>>>>> master
         $post->content = $request->input('content');
         $request->has('save');
         $post->save();
@@ -87,31 +82,10 @@ class PostsController extends Controller
     }
 
 
-        /* $post->update(request()->all());
-        return redirect(route('news.index')); */
-
-
-
-
-
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  int  $id
-         * @return Response
-         */
-
 
     public function create()
     {
-        /*if($request->user()->can_post())
-        {
-            return view('posts.create');
-        }
-        else
-        {
-            return redirect('/')->withErrors('You have not sufficient permissions for writing post');
-        }*/
+
         return view('posts.create');
 
     }

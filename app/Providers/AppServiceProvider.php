@@ -13,11 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        User::creating(function ($user) {
+        /*User::creating(function ($user) {
             if ( ! $user->isValid()) {
                 return false;
             }
-        });
+        });*/
     }
 
     /**

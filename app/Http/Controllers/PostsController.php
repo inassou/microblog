@@ -82,7 +82,10 @@ class PostsController extends Controller
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     public function create()
     {
 

@@ -40,13 +40,13 @@
             </div>
         @endif
     @endforeach
-        <div>
+    <div>
 
-                <ul style="list-style: none; padding: 0">
+        <ul style="list-style: none; padding: 0">
 
-                </ul>
+        </ul>
 
-        </div>
+    </div>
 
 @endsection
 

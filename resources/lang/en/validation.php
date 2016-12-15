@@ -101,6 +101,18 @@ return [
         ],
     ],
 
+    'custom' => [
+        'password' => [
+            'confirmed' => 'Les deux mots de passe ne sont pas identiques.',
+            'min' => 'La longueur du mot de passe doit être supérieur à 8.',
+        ],
+
+        'email' => [
+            'required' => 'Oops, tu as oublié d\'insérer ton email.',
+            'unique' => 'L\'e-mail inséré est déjà utilisé.',
+        ],
+
+    ],
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes

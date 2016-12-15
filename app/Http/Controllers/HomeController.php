@@ -11,5 +11,5 @@ class HomeController {
         $title = "Page d'acceuil";
         return view('truewelcome', ['title' => $title]);
     }
-
 }
+

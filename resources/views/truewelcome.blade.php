@@ -58,11 +58,6 @@
 
 
                 <li class="active"><a href="/home">Page d'accueil</a></li>
-<<<<<<< HEAD
-                <li><a href="/authentification">Se connecter</a></li>
-                <li><a href="/sign_up">S'inscrire</a></li>
-=======
->>>>>>> master
 
             </ul>
 

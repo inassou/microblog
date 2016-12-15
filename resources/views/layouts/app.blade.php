@@ -30,7 +30,8 @@
         ]); ?>
     </script>
 </head>
-<body>
+
+<body style="padding-top: 50px;">
 
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">

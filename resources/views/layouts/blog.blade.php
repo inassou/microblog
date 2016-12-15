@@ -92,9 +92,11 @@
     </div>
 </nav>
 
+@yield('title')
+
+@yield('title-meta')
+
 @yield('content')
-
-
 
 
 <!-- Bootstrap core JavaScript

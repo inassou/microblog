@@ -55,20 +55,9 @@ class PostsController extends Controller
         $title = $request->input('title');
 
         $post->title = $title;
-        $slug = str_slug($title);
 
-        $duplicate = Post::where('slug',$slug)->first();
-        if($duplicate)
-        {
-            if($duplicate->id != $post_id)
-            {
-                return redirect('edit/'.$post->slug)->withErrors('Title already exists.')->withInput();
-            }
-            else
-            {
-                $post->slug = $slug;
-            }
-        }
+        $theme = $request->input('theme');
+        $post->theme = $theme;
 
         $post->title = $title;
         $post->content = $request->input('content');

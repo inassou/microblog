@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::resource('news', 'PostsController');
+
 Route::get('/', function () {
     return view('welcome');
 });

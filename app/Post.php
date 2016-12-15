@@ -8,6 +8,12 @@ class Post extends Model
 {
 
 
-protected $fillable = ['title', 'name' , 'slug', 'theme' , 'nb_comments', 'content'];
+protected $fillable = ['title', 'theme' , 'content', 'name'];
+
+
+    public function author()
+    {
+        return $this->belongsTo('App\User','name_id');
+    }
 
 }

@@ -28,6 +28,14 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function user_posts($id)
+    {
+        //
+        $posts = Post::where('author_id',$id)->orderBy('created_at','desc')->paginate(5);
+        $title = User::find($id)->name;
+        return view('home')->withPost($posts)->withTitle($title);
+    }
+
     /**
      * Show the application dashboard.
      *

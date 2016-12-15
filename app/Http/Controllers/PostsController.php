@@ -59,7 +59,7 @@ class PostsController extends Controller
         $theme = $request->input('theme');
         $post->theme = $theme;
 
-        $post->title = $title;
+
         $post->content = $request->input('content');
 
         $request->has('save');

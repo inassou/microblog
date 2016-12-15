@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @extends('layouts.app')
+=======
+
+@extends('layouts.blog')
+>>>>>>> master
 
 @section('content')
 

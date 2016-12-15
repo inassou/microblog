@@ -20,5 +20,13 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index');
 
+<<<<<<< HEAD
 Auth::routes();
 
+=======
+Route::resource('sign_up', 'UserController');
+
+
+
+Auth::routes();
+>>>>>>> master

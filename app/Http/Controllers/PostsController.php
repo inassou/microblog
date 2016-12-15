@@ -74,7 +74,12 @@ class PostsController extends Controller
         $post->title = $title;
         $theme = $request->input('theme');
         $post->theme = $theme;
+<<<<<<< HEAD
         $post->title = $title;
+=======
+
+
+>>>>>>> master
         $post->content = $request->input('content');
         $request->has('save');
         $post->save();

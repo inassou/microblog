@@ -11,6 +11,10 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 Route::resource('news', 'PostsController');
 
 Route::get('/', function () {

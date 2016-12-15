@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('news', 'PostsController');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,17 +21,7 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('sign_up', 'UserController');
 
-//Route::get('sign_up', 'UserController@create');
-//Route::post('sign_up', 'UserController@store');
 
-//Route::controller('sign_up', 'UserController@index');
-
-/*
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-
-    'password' => 'Auth\PasswordController',
-]); */
 
 Auth::routes();
 

@@ -6,7 +6,7 @@
     @foreach($posts as $post)
         {{ $post->title }}
         @if(!Auth::guest() && ($post->author_id == Auth::user()->id || Auth::user()->is_admin()))
-            <button class="btn" style="float: right"><a href="{{ url('news.edit')}}">Editer</a></button>
+            <button type="button" class="btn btn-default"><a href="{{ url('news.edit')}}">Editer</a></button>
         @endif
     @endforeach
 @endsection
@@ -33,9 +33,9 @@
                     <input type="hidden" name="on_post" value="{{ $post->id }}">
                     <input type="hidden" name="slug" value="{{ $post->slug }}">
                     <div class="form-group">
-                        <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
+                        <textarea required="required" placeholder="Entrer votre commentaire" name = "body" class="form-control"></textarea>
                     </div>
-                    <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
+                    <input type="submit" name='post_comment' class="btn btn-default" value = "Commenter"/>
                 </form>
             </div>
         @endif
@@ -43,6 +43,7 @@
     <div>
 
         <ul style="list-style: none; padding: 0">
+            <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
 
         </ul>
 

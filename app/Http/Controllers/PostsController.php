@@ -21,9 +21,7 @@ class PostsController extends Controller
 
     public function store(request $request)
     {
-       // $post = Post::create();
         $post = new Post();
-
         $title = $request->input('title');
         $post->title = $title;
 
@@ -33,10 +31,6 @@ class PostsController extends Controller
         $post->theme = $theme;
 
         $post->content = $request->input('content');
-
-       // $name = $request->input('name');
-       // $post->name = $name;
-
         $post->name = $request->user()->name;
 
         $request->has('save');
@@ -82,10 +76,6 @@ class PostsController extends Controller
     }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     public function create()
     {
 

@@ -21,10 +21,9 @@ protected $fillable = ['title', 'name' , 'slug', 'theme' , 'nb_comments', 'conte
         return $this->belongsTo('App\User','name_id');
     }
 
-<<<<<<< HEAD
-=======
+
     public $timestamps = true;
 
 
->>>>>>> master
+
 }

@@ -6,6 +6,8 @@
     ],
     "hash": "88d5a1ce0abfafc98fe2021e5b2e8e04",
     "content-hash": "a20f3db57b86598c7def992bc40452ec",
+    "hash": "755feb90060aad9ac44c2825497570dc",
+    "content-hash": "23189810d6e22da46f2f49c8230700bc",
     "packages": [
         {
             "name": "adamwathan/bootforms",

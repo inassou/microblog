@@ -6,42 +6,35 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+
+
 class UserController extends Controller
 {
 
-    public function index()
+   /* public function index()
     {
         $user = User::get();
         return view('user', compact('user'));
+    } */
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function create()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
         return view('user');
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update($id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-       // return 'Le nom est ' . $request->input('nom');
     }
 }

@@ -71,12 +71,17 @@
     <h1>Inscription</h1>
 
 
-    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 5]])!!}
+    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 5], 'method'=> 'put']) !!}
 
-    {!! BootForm::text('Pseudo', 'name') !!}
+    <!-- BootForm::model($user,['method'=> 'put']) -->
+
+   {!! BootForm::text('Pseudo', 'name') !!}
     {!! BootForm::email('Email', 'email') !!}
     {!! BootForm::password('Mot de passe', 'password')->helpBlock('La longueur du mot de passe doit être supérieur à 8')!!}
-    {!! BootForm::text('Retapez votre mot de passe', 'password') !!}
+    {!! BootForm::password('Retapez votre mot de passe', 'password2') !!}
+
+ <!-- condition verifier si password=passeword 2 , sinon message d'erreur -->
+
     {!! BootForm::submit('Envoyer') !!}
 
     {!! BootForm::close() !!}

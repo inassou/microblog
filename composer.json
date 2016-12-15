@@ -9,6 +9,7 @@
         "laravel/framework": "5.3.*",
         "adamwathan/bootforms": "^0.8.2",
         "laravelcollective/html": "^5.3"
+        "swiftmailer/swiftmailer": "^5.4"
         
     },
     "require-dev": {

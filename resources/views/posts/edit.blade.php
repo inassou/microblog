@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
     @section('content')
-
-        <h1>Editer</h1>
+        <div style="padding-left: 210px;">
+      <h1>Editer</h1>
+        </div>
+        <p></p>
+        <p></p>
 
         <?php $formOptions = [
             'url' => 'user',

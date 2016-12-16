@@ -60,9 +60,5 @@ class User extends Authenticatable
         return false;
     }
 
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
 
 }

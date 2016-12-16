@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->string('theme');
             $table->integer('nb_comments');
             $table->longText('content');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

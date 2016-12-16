@@ -53,18 +53,16 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-
-
-                <li class="active"><a href="/news">Page d'accueil</a></li>
-
+                    <li class="active"><a href="/news">Page d'accueil</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Se connecter</a></li>
-                    <li><a href="{{ url('/register') }}">S'inscrire</a></li>
+                    <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span>Se connecter</a></li>
+                    <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
                 @else
+                    <li style="padding-right: 50px;"><a class="btn btn-default" href={{route('news.create')}}>Créer un nouvel article</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>

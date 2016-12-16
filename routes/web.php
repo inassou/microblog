@@ -20,5 +20,7 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index');
 
-
 Auth::routes();
+
+// add comment
+Route::post('comment/add','CommentsController@store');

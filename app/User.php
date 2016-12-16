@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany('App\Posts','author_id');
+        return $this->hasMany('App\Post','name');
     }
 
     // user has many comments
@@ -59,4 +59,10 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
 }

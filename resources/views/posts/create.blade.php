@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@extends('layouts.blog')
-
 @section('content')
 
     <h1>Editer</h1>

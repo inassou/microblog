@@ -1,18 +1,19 @@
 @extends('layouts.blog')
 
-
 @section('title')
-
     @foreach($posts as $post)
-        {{ $post->title }}
-        @if(!Auth::guest() && ($post->author_id == Auth::user()->id || Auth::user()->is_admin()))
+        <p>  {{ $post->title }} </p>
+        @if(!Auth::guest() && ($post->name == Auth::user()->id || Auth::user()->is_admin()))
             <button type="button" class="btn btn-default"><a href="{{ url('news.edit')}}">Editer</a></button>
         @endif
     @endforeach
 @endsection
 
 @section('title-meta')
-    <p> {{ $post->created_at }} Posté par {{ $post->name }} </p>
+    <p>  {{ $post->created_at }} </p>
+    <p>Posté par {{ $post->name }}</p>
+    <p class="text-right"><h12> Thème: {{ $post->theme }}</h12></p>
+
 @endsection
 
 @section('content')
@@ -21,13 +22,14 @@
         <div>
             {!! $post->content !!}
         </div>
-        <div>
-            <h2>Commenter</h2>
-        </div>
+
+
+        <div class="panel-body">
         @if(Auth::guest())
-            <p>Se connecter pour commenter</p>
+            <p style="padding-top: 20px;"></p>
+            <p class="bg-warning"> Connectez vous pour commenter </p>
         @else
-            <div class="panel-body">
+
                 <form method="post" action="/comment/add">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="on_post" value="{{ $post->id }}">
@@ -37,18 +39,31 @@
                     </div>
                     <input type="submit" name='post_comment' class="btn btn-default" value = "Commenter"/>
                 </form>
-            </div>
+                @if(Auth::user())
+                    <p></p>
+                <ul style="list-style: none; padding: 0">
+                    <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
+
+                </ul>
+                @endif
+
         @endif
+
+        </div>
     @endforeach
-    <div>
 
-        <ul style="list-style: none; padding: 0">
-            <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
 
-        </ul>
-
-    </div>
 
 @endsection
+
+
+
+
+
+
+
+
+
+
 
 

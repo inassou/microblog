@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
     @section('content')
-        <div style="padding-left: 210px;">
-      <h1>Editer</h1>
-        </div>
-        <p></p>
-        <p></p>
+            <p style="padding-top: 50px; padding-left: 200px;padding-bottom:20px;font-size:30px">Éditez votre article</p>
+
 
         <?php $formOptions = [
             'url' => 'user',

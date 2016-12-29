@@ -2,7 +2,11 @@
 
 @section('content')
 
-    <h1>Editer</h1>
+    @if (Auth::guest())
+        <p style="padding-top: 50px; padding-left: 100px;font-size:26px"><a href="{{ url('/login') }}">Connectez-vous pour créer un nouvel article</a></p>
+
+    @else
+        <p style="padding-top: 50px; padding-left: 200px;padding-bottom:20px;font-size:30px">Créez votre article</p>
 
     <?php $formOptions = [
         'url' => 'user',
@@ -18,5 +22,7 @@
     {!! BootForm::textarea('Contenu', 'content') !!}
     {!! BootForm::submit('Nouvel article') !!}
     {!! BootForm::close() !!}
+
+    @endif
 
 @stop

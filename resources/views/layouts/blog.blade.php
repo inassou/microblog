@@ -60,6 +60,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
+                    <li style="padding-right: 50px;"><a class="btn btn-default" href={{route('news.create')}}>Créer un nouvel article</a>
                     <li><a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span>Se connecter</a></li>
                     <li><a href="{{ url('/register') }}"><span class="glyphicon glyphicon-user"></span>S'inscrire</a></li>
 
@@ -77,6 +78,14 @@
                                                      document.getElementById('logout-form').submit();">
                                     Se déconnecter
                                 </a>
+
+                                <a href="{{ url('/user') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('user').submit();">
+                                    Mon profile
+                                </a>
+
+
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}

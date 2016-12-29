@@ -11,6 +11,9 @@
 |
 */
 
+//Route::get('user','UserController@user_posts');
+Route::resource('user','UserController');
+
 
 Route::resource('news', 'PostsController');
 
@@ -18,9 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', 'HomeController@index');
 
 Auth::routes();
 
+
+
+
+
+
 // add comment
-Route::post('comment/add','CommentsController@store');
+//Route::post('comment/add','CommentsController@store');

@@ -38,18 +38,18 @@
                         <input type="submit" name='post_comment' class="btn btn-default" value = "Commenter"/>
                     </form>
 
+                    @if($post->name == Auth::user()->name)
 
+                        <p></p>
+                        <ul style="list-style: none; padding: 0">
+                            <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
+
+                        </ul>
+                    @endif
 
                 @endif
 
-                @if($post->name == Auth::user()->name)
 
-                    <p></p>
-                    <ul style="list-style: none; padding: 0">
-                        <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
-
-                    </ul>
-                @endif
 
             </div>
 

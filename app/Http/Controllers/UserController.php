@@ -48,22 +48,5 @@ class UserController extends Controller
       * @return \Illuminate\Http\Response
       */
 
-   /* public function user_posts_all(Request $request)
-    {
-        //
-        $user = $request->user();
-        $posts = Post::where('name',$user->id)->orderBy('created_at','desc')->paginate(5);
-        $title = $user->name;
-        return view('user', compact('user'))->withPosts($posts)->withTitle($title);
-    } */
-
-   /* public function user_posts_draft(Request $request)
-    {
-        //
-        $user = $request->user();
-        $posts = Post::where('name',$user->id)->orderBy('created_at','desc')->paginate(5);
-        $title = $user->name;
-        //return view('news')->withPosts($posts)->withTitle($title);
-    } */
 
 }

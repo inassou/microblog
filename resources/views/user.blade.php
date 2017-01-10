@@ -6,7 +6,7 @@
 
     @foreach($posts as $post)
 
-        @if(!Auth::guest() && ($post->name == Auth::user()->id))
+        @if($post->name == Auth::user()->id)
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

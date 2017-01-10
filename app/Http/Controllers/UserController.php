@@ -12,11 +12,12 @@ use App\Post;
 class UserController extends Controller
 {
 
-   /* public function index()
+   public function index()
     {
         $user = User::get();
-        return view('user', compact('user'));
-    } */
+        $posts = Post::get();
+        return view('user', compact('user'), compact ('posts'));
+    }
 
 
     /**
@@ -24,45 +25,28 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('user');
-    }
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
 
     public function user_posts($id)
-    {
-        //
-        $posts = Post::where('name',$id)->orderBy('created_at','desc')->paginate(5);
-        $title = User::find($id)->name;
-        return view('news')->withPosts($posts)->withTitle($title);
-    }
+     {
 
-    public function user_posts_all(Request $request)
-    {
-        //
-        $user = $request->user();
-        $posts = Post::where('name',$user->id)->orderBy('created_at','desc')->paginate(5);
-        $title = $user->name;
-        return view('news')->withPosts($posts)->withTitle($title);
-    }
 
-    public function user_posts_draft(Request $request)
-    {
-        //
-        $user = $request->user();
-        $posts = Post::where('name',$user->id)->orderBy('created_at','desc')->paginate(5);
-        $title = $user->name;
-        return view('news')->withPosts($posts)->withTitle($title);
-    }
+         $user = User::get();
+        //$posts = Post::where('author_id',$id)->orderBy('created_at','desc')->paginate(5);
+         $posts = Post::where('name',$id)->orderBy('created_at','desc')->paginate(5);
+
+         //$title = User::find($id)->name;
+         return view('user', compact('user'))->withPost($posts);
+     }
+
+     /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Http\Response
+      */
+
 
 }

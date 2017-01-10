@@ -1,90 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.blog')
 
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <p style="padding-top: 50px; padding-left: 200px;padding-bottom:20px;font-size:30px">Votre profile</p>
 
-    <title>Starter Template for Bootstrap</title>
+    @foreach($posts as $post)
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        @if($post->name == Auth::user()->id)
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>  {{ $post->title }} </h2>
+                        <p>  {{ $post->created_at }} </p>
+                        <p>Posté par {{ $post->name }}</p>
+                        <p class="text-right"><h12> Thème: {{ $post->theme }}</h12></p>
 
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+                        </div>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+                        <div class="panel-body">
+                            <div>
+                                {!! $post->content !!}
+                            </div>
+                            <p></p>
+                        <form method="post" action="/comment/add">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="on_post" value="{{ $post->id }}">
+                            <input type="hidden" name="slug" value="{{ $post->slug }}">
+                            <div class="form-group">
+                                <textarea required="required" placeholder="Entrer votre commentaire" name = "body" class="form-control"></textarea>
+                            </div>
+                            <input type="submit" name='post_comment' class="btn btn-default" value = "Commenter"/>
+                        </form>
+                        <p></p>
+                        <ul style="list-style: none; padding: 0">
+                            <a class="btn btn-default" href={{route('news.edit', $post)}}>Editer</a>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+                        </ul>
 
-<body style="padding-top: 50px;">
+                    </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-
-    <nav class="slide">
-
-    </nav>
-
-
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="http://localhost:8000">MissRobot</a>
+                </div>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-
-
-                <li><a href="/home">Home</a></li>
-                <li><a href="/authentification">Se connecter</a></li>
-                <li class="active"><a href="/sign_up">S'inscrire</a></li>
-
-
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
 
 
 
-    <h1>Inscription</h1>
+@endif
 
 
-    {!! BootForm::openHorizontal(['url' => 'user', 'sm' => [2, 5], 'lg' => [2, 5], 'method'=> 'put']) !!}
 
-    <!-- BootForm::model($user,['method'=> 'put']) -->
+    @endforeach
 
-   {!! BootForm::text('Pseudo', 'name') !!}
-    {!! BootForm::email('Email', 'email') !!}
-    {!! BootForm::password('Mot de passe', 'password')->helpBlock('La longueur du mot de passe doit être supérieur à 8')!!}
-    {!! BootForm::password('Retapez votre mot de passe', 'password2') !!}
 
- <!-- condition verifier si password=passeword 2 , sinon message d'erreur -->
 
-    {!! BootForm::submit('Envoyer') !!}
 
-    {!! BootForm::close() !!}
+
+
+
+@endsection
 
 
 

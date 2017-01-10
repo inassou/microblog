@@ -1,8 +1,8 @@
-@extends('layouts.blog')
+@extends('layouts.app')
 
     @section('content')
+            <p style="padding-top: 50px; padding-left: 200px;padding-bottom:20px;font-size:30px">Éditez votre article</p>
 
-        <h1>Editer</h1>
 
         <?php $formOptions = [
             'url' => 'user',
